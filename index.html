@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Bena💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Handlee&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Handlee', cursive;
+      color: white;
+      overflow: hidden;
+    }
+
+    body {
+      background: url('https://i.ibb.co/6cJ4xVtw/09068e46-2dfe-49f9-b685-9f0458e9e5a2.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .section {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      padding: 40px;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.4); /* subtle overlay for text readability */
+    }
+
+    .section.active {
+      display: flex;
+      animation: fadeIn 1s ease;
+    }
+
+    h1, p {
+      font-family: 'Poiret One', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn {
+      background: rgba(255, 192, 203, 0.8);
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Handlee', cursive;
+    }
+
+    .btn:hover {
+      background: rgba(255, 182, 193, 1);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      display: none;
+    }
+    #section4 p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" src="https://www.dropbox.com/scl/fi/jcwk3oijlo4nwg7rlykwl/blue.mp3?rlkey=c0qd73p7096pkxtktqmaa6vp7&st=v144p2em&raw=1" loop></audio>
+
+  <!-- Sections -->
+  <div class="section active" id="section1">
+    <h1>Hello Bena 😝🤟🏻</h1>
+  <button class=btn onclick="playMusic(); nextSection(2);">Proceed</button>
+  </div>
+
+  <div class="section" id="section2">
+    <h1>Soo... I wanted to tell you something...</h1>
+    <button class="btn" onclick="nextSection(3)">🤔</button>
+  </div>
+
+  <div class="section" id="section3">
+    <h1>😅So... I really like you, Bena 🥺💝</h1>
+    <button class="btn" onclick="nextSection(4)">👉🏻💌</button>
+  </div>
+
+  <div class="section" id="section4">
+    <p>
+      Umm... 😅 I've been meaning to tell you this for a while now 😭— I've had feelings for you for quite some time.<br><br>
+      Remember when we first talked over DKD? 😭 You kinda just... clicked. There's something about the way you speak — it's really cool, soft but sharp and I really like that about you.<br><br>
+      You're honestly soooo cool 😮‍💨 and you know it. You're really kind, sweet and confident and I genuinely admire that.<br><br>
+      And I have to mention your intellect — the passion you speak with when you're into something, the way you explain things, your thoughts, your little epiphanies. They’re all just so honest and beautiful to look up to. I really, really like you, Bena 🥺😭💝!!!
+    </p>
+    <button class="btn" onclick="nextSection(5)">👉🏻</button>
+  </div>
+
+  <div class="section" id="section5">
+    <h1>
+      That’s all I wanted to say.<br>
+      I just had to let it out.<br>
+      I’ll be around.<br>
+      You know where to find me 🥺
+    </h1>
+    <button class="btn" onclick="nextSection(1)">💗</button>
+  </div>
+
+  <script>
+    let musicStarted = false;
+
+function playMusic() {
+  if (!musicStarted) {
+    const audio = document.getElementById("bgMusic");
+    audio.play().catch((e) => {
+      console.log("Autoplay failed:", e);
+    });
+    musicStarted = true;
+  }
+}
+    function nextSection(n) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(s => s.classList.remove('active'));
+      document.getElementById(`section${n}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
